@@ -16,11 +16,19 @@ class PostViewModel with ChangeNotifier {
       error = null;
       notifyListeners();
 
+      // Fetch posts for the current page
       final newPosts = await _repository.fetchPosts(page: currentPage);
 
       if (newPosts.isNotEmpty) {
         posts = newPosts;
-        hasMore = newPosts.length == 10;
+
+        // Check if the next page has posts
+        final nextPosts = await _repository.fetchPosts(page: currentPage + 1);
+
+        // If the next page is empty, mark hasMore as false
+        hasMore = nextPosts.isNotEmpty;
+      } else {
+        hasMore = false; // No posts available, set hasMore to false
       }
     } catch (e) {
       error = e is Exception
