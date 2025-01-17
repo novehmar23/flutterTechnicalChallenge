@@ -9,7 +9,7 @@ To run this project, make sure you have the following installed:
 ## How to Run the Project
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/your-username/flutter-technical-challenge.git](https://github.com/novehmar23/flutterTechnicalChallenge.git)
+   git clone https://github.com/novehmar23/flutterTechnicalChallenge.git
    cd flutter-technical-challenge
 
 2. Install dependencies:
